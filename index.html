@@ -4,32 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Uni_Glasgow_2017_arms.png/225px-Uni_Glasgow_2017_arms.png" />
     <link rel="stylesheet" href="./all.css">
     <title>HCS Team C</title>
-    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-database.js"></script>
-    <script type="text/javascript" src="./Timing.js"> </script>
+    <script type="text/javascript" src="./index.js"></script>
 </head>
 
 <body>
-
-  <input type="image" class="icon" style="top:140px; left:20px" value="151" id="one" src="./icons/151.jpg" onclick="onIconClick(getElementById('one').value, 'one')">
-  <input type="image" class="icon" style="top:140px; left:135px" value="152" id="two" src="./icons/152.jpg" onclick="onIconClick(getElementById('two').value, 'two')">
-  <input type="image" class="icon" style="top:140px; left:250px" value="153" id="three" src="./icons/153.jpg" onclick="onIconClick(getElementById('three').value, 'three')">
+  <input type="button" class="numpad" style="top:305px; left:20px" value="1" id="one" onclick="changeNumPad()">
+  <input type="button" class="numpad" style="top:305px; left:135px" value="2" id="two" onclick="changeNumPad()">
+  <input type="button" class="numpad" style="top:305px; left:250px" value="3" id="three" onclick="changeNumPad()">
   <br />
-  <input type="image" class="icon" style="top:255px; left: 20px;" value="154" id="four" src="./icons/154.jpg"  onclick="onIconClick(getElementById('four').value, 'four')">
-  <input type="image" class="icon" style="top:255px; left:135px" value="155" id="five" src="./icons/155.jpg" onclick="onIconClick(getElementById('five').value, 'five')">
-  <input type="image" class="icon" style="top:255px; left:250px" value="156" id="six" src="./icons/156.jpg" onclick="onIconClick(getElementById('six').value, 'six')">
+  <input type="button" class="numpad" style="top:365px; left: 20px;" value="4" id="four" onclick="changeNumPad()">
+  <input type="button" class="numpad" style="top:365px; left:135px" value="5" id="five" onclick="changeNumPad()">
+  <input type="button" class="numpad" style="top:365px; left:250px" value="6" id="six" onclick="changeNumPad()">
   <br />
-  <input type="image" class="icon" style="top: 370px; left:20px" value="157" id="seven" src="./icons/157.jpg" onclick="onIconClick(getElementById('seven').value, 'seven')">
-  <input type="image" class="icon" style="top: 370px; left:135px" value="158" id="eight" src="./icons/158.jpg" onclick="onIconClick(getElementById('eight').value, 'eight')">
-  <input type="image" class="icon" style="top: 370px; left:250px" value="159" id="nine" src="./icons/159.jpg" onclick="onIconClick(getElementById('nine').value, 'nine')">
+  <input type="button" class="numpad" style="top: 425px; left:20px" value="7" id="seven" onclick="changeNumPad()">
+  <input type="button" class="numpad" style="top: 425px; left:135px" value="8" id="eight" onclick="changeNumPad()">
+  <input type="button" class="numpad" style="top: 425px; left:250px" value="9" id="nine" onclick="changeNumPad()">
   <br />
-  <input type="image" class="icon" style="top: 485px; left:20px" value="160" id="ten" src="./icons/160.jpg" onclick="onIconClick(getElementById('ten').value, 'ten')">
-  <input type="image" class="icon" style="top: 485px; left:135px" value="161" id="eleven" src="./icons/161.jpg" onclick="onIconClick(getElementById('eleven').value, 'eleven')">
-  <input type="image" class="icon" style="top: 485px; left:250px" value="162" id="twelve" src="./icons/162.jpg" onclick="onIconClick(getElementById('twelve').value, 'twelve')">
-
+  <input type="button" class="numpad" style="top: 485px; left:135px" value="0" id="zero" onclick="changeNumPad()">
 </body>
 
 </html>
