@@ -1,11 +1,5 @@
+passcode = ["1", "2", "3", "4"];
 orderArr = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero"];
-// get time and convert to string to push to database
-var start = new Date();
-var time = start.getDate().toString();
-var hours = start.getHours().toString();
-var min = start.getMinutes().toString();
-var sec = start.getSeconds().toString();
-time = time.concat(".", hours,".", min, ".", sec);
 
 //rearrange array to get random order:
 function shuffle(arr) {
@@ -25,10 +19,11 @@ function getRandOrder() {
   randArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   // rearrange targets to get random order
   randArr = this.shuffle(randArr);
+  return randArr;
 }
 
 function changeNumPad(){
-  this.getRandOrder();
+  randArr = this.getRandOrder();
   document.getElementById("one").setAttribute("value", randArr[0]);
   document.getElementById("two").setAttribute("value", randArr[1]);
   document.getElementById("three").setAttribute("value", randArr[2]);
@@ -40,3 +35,32 @@ function changeNumPad(){
   document.getElementById("nine").setAttribute("value", randArr[8]);
   document.getElementById("zero").setAttribute("value", randArr[9]);
 }
+
+function compareArrays(array1, array2){
+  if (array1.length === array2.length && array1.every(function(value, index) { return value === array2[index]})){
+    return true;
+  }
+}
+
+enteredPasscode = [];
+function onButtonClick(enteredNum){
+  // save the number that was just entered
+  enteredPasscode.push(enteredNum);
+  // check if the length of the entered passcode matches the passcode
+  if (enteredPasscode.length == passcode.length){
+    // if yes, check if the passcode matches
+    if (compareArrays(enteredPasscode, passcode)){
+      // if yes, unlock device, just say that in a message
+      document.getElementById("userMessage").innerHTML = "Correct passcode, device unlocked";
+      this.changeNumPad();
+      enteredPasscode = [];
+    }
+    // else say error and enter passcode again
+    else{
+      document.getElementById("userMessage").innerHTML = "Incorrect passcode, try again";
+      enteredPasscode = [];
+    }
+  }
+}
+
+this.changeNumPad();
