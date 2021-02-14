@@ -1,5 +1,4 @@
 passcode = ["1", "2", "3", "4"];
-orderArr = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero"];
 
 //rearrange array to get random order:
 function shuffle(arr) {
@@ -42,6 +41,7 @@ function compareArrays(array1, array2){
   }
 }
 
+// issues with the numpad changing at wrong intervals, doesn't do it when the passcode is entered correctly. after correct passcode, it changes after 2 more numbers entered...
 enteredPasscode = [];
 function onButtonClick(enteredNum){
   // save the number that was just entered
@@ -51,13 +51,13 @@ function onButtonClick(enteredNum){
     // if yes, check if the passcode matches
     if (compareArrays(enteredPasscode, passcode)){
       // if yes, unlock device, just say that in a message
-      document.getElementById("userMessage").innerHTML = "Correct passcode, device unlocked";
+      alert("Correct passcode, device unlocked.");
       this.changeNumPad();
       enteredPasscode = [];
     }
     // else say error and enter passcode again
     else{
-      document.getElementById("userMessage").innerHTML = "Incorrect passcode, try again";
+      alert("Incorrect passcode, try again.");
       enteredPasscode = [];
     }
   }
