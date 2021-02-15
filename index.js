@@ -42,21 +42,29 @@ function compareArrays(array1, array2){
 }
 
 enteredPasscode = [];
+text = "";
+
 function onButtonClick(enteredNum){
+  text += "*";
+  document.getElementById("passcode").innerHTML = text;
   // save the number that was just entered
   enteredPasscode.push(enteredNum);
   // check if the length of the entered passcode matches the passcode
   if (enteredPasscode.length == passcode.length){
     // if yes, check if the passcode matches
     if (compareArrays(enteredPasscode, passcode)){
-      alert("Correct passcode, device unlocked.");
+      setTimeout(function() {alert("Correct passcode, device unlocked.");},1);
       this.changeNumPad();
       enteredPasscode = [];
+      text = "";
+      document.getElementById("passcode").innerHTML = text;
     }
     else{
-      alert("Incorrect passcode, try again.");
+      setTimeout(function() {alert("Incorrect passcode, try again.");},1);
       this.changeNumPad();
       enteredPasscode = [];
+      text = "";
+      document.getElementById("passcode").innerHTML = text;
     }
   }
 }
