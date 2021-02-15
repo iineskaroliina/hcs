@@ -41,12 +41,10 @@ function compareArrays(array1, array2){
   }
 }
 
-// randomizing numpad is working strangely, need to debug
 enteredPasscode = [];
 function onButtonClick(enteredNum){
   // save the number that was just entered
   enteredPasscode.push(enteredNum);
-  console.log(enteredPasscode);
   // check if the length of the entered passcode matches the passcode
   if (enteredPasscode.length == passcode.length){
     // if yes, check if the passcode matches
@@ -63,4 +61,4 @@ function onButtonClick(enteredNum){
   }
 }
 
-// this.changeNumPad();
+this.changeNumPad();
