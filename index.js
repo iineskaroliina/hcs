@@ -22,7 +22,6 @@ function getRandOrder() {
 }
 
 function changeNumPad(){
-  console.log("change num pad function");
   randArr = this.getRandOrder();
   document.getElementById("one").setAttribute("value", randArr[0]);
   document.getElementById("two").setAttribute("value", randArr[1]);
@@ -42,27 +41,26 @@ function compareArrays(array1, array2){
   }
 }
 
-// issues with the numpad changing at wrong intervals, doesn't do it when the passcode is entered correctly. after correct passcode, it changes after 2 more numbers entered...
-// randomizing is working strangely, need to debug
+// randomizing numpad is working strangely, need to debug
 enteredPasscode = [];
 function onButtonClick(enteredNum){
   // save the number that was just entered
   enteredPasscode.push(enteredNum);
+  console.log(enteredPasscode);
   // check if the length of the entered passcode matches the passcode
   if (enteredPasscode.length == passcode.length){
     // if yes, check if the passcode matches
     if (compareArrays(enteredPasscode, passcode)){
-      // if yes, unlock device, just say that in a message
       alert("Correct passcode, device unlocked.");
       this.changeNumPad();
       enteredPasscode = [];
     }
-    // else say error and enter passcode again
     else{
       alert("Incorrect passcode, try again.");
+      this.changeNumPad();
       enteredPasscode = [];
     }
   }
 }
 
-this.changeNumPad();
+// this.changeNumPad();
