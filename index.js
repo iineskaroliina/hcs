@@ -42,30 +42,39 @@ function compareArrays(array1, array2){
 }
 
 enteredPasscode = [];
-text = "";
+text = [];
 
 function onButtonClick(enteredNum){
-  text += "*";
-  document.getElementById("passcode").innerHTML = text;
-  // save the number that was just entered
-  enteredPasscode.push(enteredNum);
-  // check if the length of the entered passcode matches the passcode
-  if (enteredPasscode.length == passcode.length){
-    // if yes, check if the passcode matches
-    if (compareArrays(enteredPasscode, passcode)){
-      setTimeout(function() {alert("Correct passcode, device unlocked.");},1);
-      this.changeNumPad();
-      enteredPasscode = [];
-      text = "";
-      document.getElementById("passcode").innerHTML = text;
+  if (enteredNum == "back"){
+    enteredPasscode.pop();
+    text.pop();
+    document.getElementById("passcode").innerHTML = text.join("");
+  }
+  else if (enteredNum == "enter"){
+    // check if the length of the entered passcode matches the passcode
+    if (enteredPasscode.length == passcode.length){
+      // if yes, check if the passcode matches
+      if (compareArrays(enteredPasscode, passcode)){
+        setTimeout(function() {alert("Correct passcode, device unlocked.");},1);
+        this.changeNumPad();
+        enteredPasscode = [];
+        text = [];
+        document.getElementById("passcode").innerHTML = text.join("");
+      }
+      else{
+        setTimeout(function() {alert("Incorrect passcode, try again.");},1);
+        this.changeNumPad();
+        enteredPasscode = [];
+        text = [];
+        document.getElementById("passcode").innerHTML = text.join("");
+      }
     }
-    else{
-      setTimeout(function() {alert("Incorrect passcode, try again.");},1);
-      this.changeNumPad();
-      enteredPasscode = [];
-      text = "";
-      document.getElementById("passcode").innerHTML = text;
-    }
+  }
+  else{
+    text.push("*");
+    document.getElementById("passcode").innerHTML = text.join("");
+    // save the number that was just entered
+    enteredPasscode.push(enteredNum);
   }
 }
 
