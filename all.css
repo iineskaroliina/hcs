@@ -6,6 +6,10 @@ h1 {
   font-size: 18px;
 }
 
+.fullContainer{
+
+}
+
 #passcode{
   font-size:38px;
   font-family: Arial, Helvetica, sans-serif;
@@ -13,23 +17,16 @@ h1 {
   margin-top: 50px;
 }
 
-/* table, th, td {
-  border: none;
-} */
-
-/* td {
-  padding:2%;
-} */
-
 table {
-  top:10%;
-  margin-left:12.5%;
+  position:fixed;
+  top:40%;
+  margin-left:7%;
   margin-right:12.5%;
   width: 80%;
 }
 
 .numButton{
   height:12vh;
-  width:14vw;
+  width:25vw;
   padding-top:2vh;
 }
