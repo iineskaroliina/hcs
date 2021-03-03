@@ -4,7 +4,7 @@ h1 {
   margin-top:100px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
-  text-align: center;
+  margin-left: 44%;
 }
 
 #passcode{
@@ -27,8 +27,5 @@ table {
   height:12vh;
   width:25vw;
   padding-top:2vh;
-}
-
-#disable-zoom{
   touch-action: manipulation;
 }
