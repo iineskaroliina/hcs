@@ -6,15 +6,11 @@ h1 {
   font-size: 18px;
 }
 
-.fullContainer{
-
-}
-
 #passcode{
   font-size:38px;
   font-family: Arial, Helvetica, sans-serif;
-  margin-left:150px;
-  margin-top: 50px;
+  margin-left:42%;
+  margin-top: 12.5%;
 }
 
 table {
