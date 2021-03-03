@@ -22,13 +22,14 @@ h1 {
 } */
 
 table {
+  top:10%;
   margin-left:12.5%;
   margin-right:12.5%;
-  width: 75%;
+  width: 80%;
 }
 
 .numButton{
   height:12vh;
-  width:10vw;
-  padding-top:1vh;
+  width:14vw;
+  padding-top:2vh;
 }
