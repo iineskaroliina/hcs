@@ -75,6 +75,7 @@ function onButtonClick(enteredNum){
     document.getElementById("passcode").innerHTML = text.join("");
     // save the number that was just entered
     enteredPasscode.push(enteredNum);
+    console.log(enteredPasscode);
   }
 }
 

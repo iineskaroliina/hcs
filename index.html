@@ -11,21 +11,28 @@
 <body>
   <h1>Enter 4 digit PIN:</h1>
   <p id="passcode"></p>
-  <input type="button" class="numpad" style="top:300px; left:20px" value="1" id="one" onclick="onButtonClick(getElementById('one').value)">
-  <input type="button" class="numpad" style="top:300px; left:135px" value="2" id="two" onclick="onButtonClick(getElementById('two').value)">
-  <input type="button" class="numpad" style="top:300px; left:250px" value="3" id="three" onclick="onButtonClick(getElementById('three').value)">
-  <br />
-  <input type="button" class="numpad" style="top:375px; left: 20px;" value="4" id="four" onclick="onButtonClick(getElementById('four').value)">
-  <input type="button" class="numpad" style="top:375px; left:135px" value="5" id="five" onclick="onButtonClick(getElementById('five').value)">
-  <input type="button" class="numpad" style="top:375px; left:250px" value="6" id="six" onclick="onButtonClick(getElementById('six').value)">
-  <br />
-  <input type="button" class="numpad" style="top: 450px; left:20px" value="7" id="seven" onclick="onButtonClick(getElementById('seven').value)">
-  <input type="button" class="numpad" style="top: 450px; left:135px" value="8" id="eight" onclick="onButtonClick(getElementById('eight').value)">
-  <input type="button" class="numpad" style="top: 450px; left:250px" value="9" id="nine" onclick="onButtonClick(getElementById('nine').value)">
-  <br />
-  <input type="button" class="numpad" style="top: 525px; left:20px" value="<--" id="back" onclick="onButtonClick(getElementById('back').id)">
-  <input type="button" class="numpad" style="top: 525px; left:135px" value="0" id="zero" onclick="onButtonClick(getElementById('zero').value)">
-  <input type="button" class="numpad" style="top: 525px; left:250px" value="Enter" id="enter" onclick="onButtonClick(getElementById('enter').id)">
+  <table>
+    <tr>
+      <th><input type="button" value="1" id="one" onclick="onButtonClick(getElementById('one').value)"></th>
+      <th><input type="button" value="2" id="two" onclick="onButtonClick(getElementById('two').value)"></th>
+      <th><input type="button" value="3" id="three" onclick="onButtonClick(getElementById('three').value)"></th>
+    </tr>
+    <tr>
+      <th><input type="button" value="4" id="four" onclick="onButtonClick(getElementById('four').value)"></th>
+      <th><input type="button" value="5" id="five" onclick="onButtonClick(getElementById('five').value)"></th>
+      <th><input type="button" value="6" id="six" onclick="onButtonClick(getElementById('six').value)"></th>
+    </tr>
+    <tr>
+      <th><input type="button" value="7" id="seven" onclick="onButtonClick(getElementById('seven').value)"></th>
+      <th><input type="button" value="8" id="eight" onclick="onButtonClick(getElementById('eight').value)"></th>
+      <th><input type="button" value="9" id="nine" onclick="onButtonClick(getElementById('nine').value)"></th>
+    </tr>
+    <tr>
+      <th><input type="button" value="<--" id="back" onclick="onButtonClick(getElementById('back').id)"></th>
+      <th><input type="button" value="0" id="zero" onclick="onButtonClick(getElementById('zero').value)"></th>
+      <th><input type="button" value="Enter" id="enter" onclick="onButtonClick(getElementById('enter').id)"></th>
+    </tr>
+  </table>
 
   <script type="text/javascript" src="./index.js"></script>
 </body>

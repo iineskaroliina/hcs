@@ -33,29 +33,30 @@ p {
   margin-top: 50px;
 }
 
-.button {
-  background-color: #70A4FE;
-  border: black;
-  color: black;
-  padding: 32px 32px;
-  text-align: center;
-  font-size: 24px;
-  margin: 4px 2px;
-  display: inline-block;
-  text-decoration: none;
-  top: auto;
-  left: auto;
-  height: auto;
-  width: 60%;
-  position: absolute;
-  float: left;
-  margin-right: 15%;
-  margin-left: 15%;
+button{
+  position:relative;
+  height:100%;
+  width:100%;
 }
 
-.numpad {
-  width: 110px;
-  height: 70px;
+/* .numpad {
+  width: 10%;
+  height: 10%;
   position: absolute;
-  z-index:-10;
+  padding: 2%;
+} */
+
+table, th, td {
+  border: none;
+}
+
+th{
+  padding: 3%;
+}
+
+tr {
+}
+
+table {
+  width: 50%;
 }
