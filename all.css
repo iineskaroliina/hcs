@@ -28,3 +28,7 @@ table {
   width:25vw;
   padding-top:2vh;
 }
+
+#disable-zoom{
+  touch-action: manipulation;
+}
