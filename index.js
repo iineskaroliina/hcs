@@ -92,25 +92,6 @@ function onButtonClick(enteredNum){
   // give user feedback that number entered was registered:
   text.push("*");
   document.getElementById("passcode").innerHTML = text.join("");
-
-  // // back button click:
-  // if (enteredNum == "back"){
-  //     onBackClick(enteredPasscode);
-  // }
-  //
-  // // enter button click:
-  // else if (enteredNum == "enter"){
-  //   onEnter(enteredPasscode);
-  // }
-  //
-  // // click on number:
-  // else{
-  //   // save the number that was just entered
-  //   enteredPasscode.push(enteredNum);
-  //   // give user feedback that number entered was registered:
-  //   text.push("*");
-  //   document.getElementById("passcode").innerHTML = text.join("");
-  // }
 }
 
 // shuffle numpad when page is opened:
