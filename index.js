@@ -41,18 +41,7 @@ function compareArrays(array1, array2){
   }
 }
 
-enteredPasscode = [];
-text = [];
-
-function onButtonClick(enteredNum){
-  text.push("*");
-  document.getElementById("passcode").innerHTML = text.join("");
-  // save the number that was just entered
-  enteredPasscode.push(enteredNum);
-  console.log(enteredPasscode);
-}
-
-function onBackClick(){
+function onBackClick(enteredPasscode){
   enteredPasscode.pop();
   text.pop();
   document.getElementById("passcode").innerHTML = text.join("");
@@ -66,7 +55,7 @@ function wrongPasscode(){
   document.getElementById("passcode").innerHTML = text.join("");
 }
 
-function onEnter(){
+function onEnter(enteredPasscode){
   // check if the length of the entered passcode matches the passcode
   if (enteredPasscode.length == passcode.length){
     // if yes, check if the passcode matches
@@ -87,4 +76,32 @@ function onEnter(){
   }
 }
 
+enteredPasscode = [];
+text = [];
+
+// MAIN BUTTON CLICK METHOD:
+function onButtonClick(enteredNum){
+  // back button click:
+  if (enteredNum == "back"){
+    if (enteredPasscode.length > 0){
+      onBackClick(enteredPasscode);
+    }
+  }
+
+  // enter button click:
+  else if (enteredNum == "enter"){
+    onEnter(enteredPasscode);
+  }
+
+  // click on number:
+  else{
+    // save the number that was just entered
+    enteredPasscode.push(enteredNum);
+    // give user feedback that number entered was registered:
+    text.push("*");
+    document.getElementById("passcode").innerHTML = text.join("");
+  }
+}
+
+// shuffle numpad when page is opened:
 this.changeNumPad();

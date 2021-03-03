@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <h1>TESTING RELATIVE POSITIONING 15:58</h1>
+  <h1>TESTING RELATIVE POSITIONING 16:13</h1>
   <div id="fullContainer">
     <p id="passcode"></p>
     <table>
@@ -29,9 +29,9 @@
         <td><input type="button" class="numButton" value="9" id="nine" onclick="onButtonClick(getElementById('nine').value)"></td>
       </tr>
       <tr>
-        <td><input type="button" class="numButton" value="<--" id="back" onclick="onBackClick()"></td>
+        <td><input type="button" class="numButton" value="<--" id="back" onclick="onButtonClick(getElementById('back').id)"></td>
         <td><input type="button" class="numButton" value="0" id="zero" onclick="onButtonClick(getElementById('zero').value)"></td>
-        <td><input type="button" class="numButton" value="Enter" id="enter" onclick="onEnter()"></td>
+        <td><input type="button" class="numButton" value="Enter" id="enter" onclick="onButtonClick(getElementById('enter').id)"></td>
       </tr>
     </table>
   </div>
