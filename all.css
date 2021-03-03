@@ -11,7 +11,7 @@ h1 {
   font-size:38px;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 12.5%;
-  margin-left: -2%;
+  margin-left: -10%;
   text-align: center;
 }
 
@@ -21,6 +21,7 @@ table {
   margin-left:7%;
   margin-right:12.5%;
   width: 80%;
+  margin-bottom: 5%;
 }
 
 .numButton{
