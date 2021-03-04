@@ -10,9 +10,9 @@ h1 {
 #passcode{
   font-size:38px;
   font-family: Arial, Helvetica, sans-serif;
-  margin-left: -5%;
   text-align: center;
   position: fixed;
+  margin-left: 42%;
 }
 
 table {
