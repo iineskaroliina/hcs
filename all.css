@@ -12,6 +12,7 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   margin-left: -5%;
   text-align: center;
+  position: fixed;
 }
 
 table {
