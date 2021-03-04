@@ -1,6 +1,11 @@
 passcode = ["1", "2", "3", "4"];
 enteredPasscode = [];
 text = [];
+startTime = new Date();
+// temp saved: the randomized array, time taken, number of errors
+temp = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]];
+data = [];
+errors = 0;
 
 //rearrange array to get random order:
 function shuffle(arr) {
@@ -15,6 +20,12 @@ function shuffle(arr) {
   return arr;
 }
 
+function getTime(start) {
+  var end = new Date();
+  var timeTaken = end - start;
+  return timeTaken;
+}
+
 // get array of numbers
 function getRandOrder() {
   randArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -25,6 +36,7 @@ function getRandOrder() {
 
 function changeNumPad(){
   randArr = this.getRandOrder();
+  temp.push(randArr);
   document.getElementById("one").setAttribute("value", randArr[0]);
   document.getElementById("two").setAttribute("value", randArr[1]);
   document.getElementById("three").setAttribute("value", randArr[2]);
@@ -46,6 +58,7 @@ function compareArrays(array1, array2){
 
 // If wrong passcode entered:
 function wrongPasscode(){
+  errors += 1;
   setTimeout(function() {alert("Incorrect PIN, try again.");},1);
   this.changeNumPad();
   enteredPasscode = [];
@@ -57,6 +70,7 @@ function wrongPasscode(){
 // Click on back button:
 function onBackClick(){
   if (enteredPasscode.length >0){
+    errors +=1;
     enteredPasscode.pop();
     text.pop();
     document.getElementById("passcode").innerHTML = text.join("");
@@ -69,11 +83,29 @@ function onEnter(){
   if (enteredPasscode.length == passcode.length){
     // if yes, check if the passcode matches
     if (compareArrays(enteredPasscode, passcode)){
-      setTimeout(function() {alert("Correct passcode, device unlocked.");},1);
-      this.changeNumPad();
-      enteredPasscode = [];
-      text = [];
-      document.getElementById("passcode").innerHTML = text.join("");
+      // save important info:
+      var timeTaken = this.getTime(startTime);
+      temp.push(errors, timeTaken);
+      console.log(temp);
+      data.push(temp);
+
+      // if participant has completed the inital PIN entry and then 5 of the randomised ones, save data and redirect participant to questionnaire:
+      if (data.length == 5){
+        // save to database
+        // redirect user to questionnaire
+      }
+      
+      // else, reset and keep going:
+      else{
+        // feedback to user and reset variables for next round, reshuffle numpad:
+        temp = [];
+        errors = 0;
+        setTimeout(function() {alert("Correct passcode, device unlocked.");},1);
+        this.changeNumPad();
+        enteredPasscode = [];
+        text = [];
+        document.getElementById("passcode").innerHTML = text.join("");
+      }
     }
     // if no, wrong passcode
     else{
@@ -87,12 +119,12 @@ function onEnter(){
 
 // MAIN BUTTON CLICK METHOD:
 function onButtonClick(enteredNum){
+  if (enteredPasscode.length == 0){
+    startTime = new Date();
+  }
   // save the number that was just entered
   enteredPasscode.push(enteredNum);
   // give user feedback that number entered was registered:
   text.push("*");
   document.getElementById("passcode").innerHTML = text.join("");
 }
-
-// shuffle numpad when page is opened:
-this.changeNumPad();
