@@ -42,6 +42,11 @@ table {
   font-size: 24px;
   display: inline-block;
   text-decoration: none;
+  top: auto;
+  height: auto;
+  position: fixed;
+  float: left;
+  margin-left: 20%;
 }
 
 .intro{
