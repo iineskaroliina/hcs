@@ -48,7 +48,7 @@ table {
 }
 
 .intro{
-  font-size: 14px;
+  font-size: 13px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: justify;
   margin-left: 3%;
@@ -65,6 +65,6 @@ table {
 
 .intro-h2 {
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
 }
