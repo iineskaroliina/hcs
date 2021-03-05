@@ -1,43 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="utf-8" />
     <link rel="shortcut icon" href="https://media-exp1.licdn.com/dms/image/C4E0BAQGxlgGYfGhbow/company-logo_200_200/0?e=2159024400&v=beta&t=q04_PyvBQipifYUkgA642xn68r6CokpLDrTusbXRghU" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="./all.css">
+    <link rel = "stylesheet" href = "./src/all.css" />
     <title>HCS Team C</title>
-</head>
+  </head>
 
-<body scroll="no">
-  <h1>ENTER PIN:</h1>
-  <div>
-    <p id="passcode"></p>
-    <table>
-      <tr>
-        <td><input type="button" class="numButton" value="1" id="one" onclick="onButtonClick(getElementById('one').value)"></td>
-        <td><input type="button" class="numButton" value="2" id="two" onclick="onButtonClick(getElementById('two').value)"></td>
-        <td><input type="button" class="numButton" value="3" id="three" onclick="onButtonClick(getElementById('three').value)"></td>
-      </tr>
-      <tr>
-        <td><input type="button" class="numButton" value="4" id="four" onclick="onButtonClick(getElementById('four').value)"></td>
-        <td><input type="button" class="numButton" value="5" id="five" onclick="onButtonClick(getElementById('five').value)"></td>
-        <td><input type="button" class="numButton" value="6" id="six" onclick="onButtonClick(getElementById('six').value)"></td>
-      </tr>
-      <tr>
-        <td><input type="button" class="numButton" value="7" id="seven" onclick="onButtonClick(getElementById('seven').value)"></td>
-        <td><input type="button" class="numButton" value="8" id="eight" onclick="onButtonClick(getElementById('eight').value)"></td>
-        <td><input type="button" class="numButton" value="9" id="nine" onclick="onButtonClick(getElementById('nine').value)"></td>
-      </tr>
-      <tr>
-        <td><input type="button" class="numButton" value="<--" id="back" onclick="onBackClick()"></td>
-        <td><input type="button" class="numButton" value="0" id="zero" onclick="onButtonClick(getElementById('zero').value)"></td>
-        <td><input type="button" class="numButton" value="Enter" id="enter" onclick="onEnter()"></td>
-      </tr>
-    </table>
-  </div>
+  <body>
+    <h1 class="intro-h1">PIN Entry Investigation</h1>
+    <h2 class="intro-h2"> Human Centred Security 2021 - Team C <br /><br /> Michal Broos, Iain Christie, Iines Korhonen, Ewan Pandelus, Marija Vaskevicuite
+    <br /><br />
+    <!-- <p>Thank you for your interest in this experiment; however, we have now had enough responses and are no longer collecting more. </p> -->
 
-  <script type="text/javascript" src="./index.js"></script>
-</body>
+    <p class="intro">
+      The aim of this experiment is to <b>investigate the suitability of PIN entry on a randomised number pad</b>. We cannot tell how good this PIN entry method is unless we ask people who are likely to be using it, which is why we need to run experiments like these.
+      <br /><br />
+      <b>You will be shown a number pad and asked to enter a PIN</b>, shown at the top of the following page. At first the number pad will be in a standard format that you might be familiar with. Then, the numbers on the number pad will randomise and you will be asked to enter the same PIN. In total, you will be completing <b>8 PIN entries</b>. Please note that it is the PIN entry method that is being evaluated, not you.
+      <br /><br />
+      After you have completed the PIN entry, you will be redirected to a <b>short questionnaire</b>. This will give us insight into how likely you would be to use the proposed PIN entry method. You will also be asked to enter some demographic data. The demographic questions are completely optional and your answers will not (and cannot) be used to identify your data.
+      <br /><br />
+      You are welcome to withdraw from the experiment at any time. If you do so, then it will not be possible for you to be debriefed about the purposes of the experiment.
+      <br /><br />
+      If you have any questions, please contact us at 2268050k@student.gla.ac.uk.
+      <br /><br />
+      <b>By continuing in this experiment, you are agreeing that you have read and understood the information above and agree to voluntarily take part in this experiment.</b>
+      <br /><br /><br />
+    </p>
 
+    <div>
+      <form action="./src/pin.html">
+        <button class="button" type="submit">I understand the above information and agree to take part in this study</button>
+      </form>
+    </div>
+
+  </body>
 </html>

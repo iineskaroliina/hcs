@@ -1,4 +1,17 @@
-passcode = ["1", "2", "3", "4"];
+// set up database:
+var firebaseConfig = {
+  apiKey: "AIzaSyC4J-wxKmkLh3wem22R0MMlS_Qa6k_R4jY",
+  authDomain: "hcs-ax.firebaseapp.com",
+  projectId: "hcs-ax",
+  databaseURL: "https://hcs-ax-default-rtdb.firebaseio.com/",
+  storageBucket: "hcs-ax.appspot.com",
+  messagingSenderId: "468649954217",
+  appId: "1:468649954217:web:6db18abd0be4e1ec0212b8"
+};
+var db = firebase.initializeApp(firebaseConfig).database();
+
+// global variables:
+passcode = ["2", "6", "4", "8"];
 enteredPasscode = [];
 text = [];
 startTime = new Date();
@@ -6,6 +19,17 @@ startTime = new Date();
 temp = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]];
 data = [];
 errors = 0;
+
+// generate userid for easier saving to db
+function generateUserID() {
+  var result = '';
+  var characters = '0123456789';
+  for ( var i = 0; i < 8; i++ ) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
+userId = this.generateUserID();
 
 //rearrange array to get random order:
 function shuffle(arr) {
@@ -20,13 +44,14 @@ function shuffle(arr) {
   return arr;
 }
 
+// calculate time taken to enter PIN
 function getTime(start) {
   var end = new Date();
   var timeTaken = end - start;
   return timeTaken;
 }
 
-// get array of numbers
+// get randomised array of numbers
 function getRandOrder() {
   randArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   // rearrange targets to get random order
@@ -34,6 +59,7 @@ function getRandOrder() {
   return randArr;
 }
 
+// edit values of the numpad
 function changeNumPad(){
   randArr = this.getRandOrder();
   temp.push(randArr);
@@ -79,39 +105,39 @@ function onBackClick(){
 
 // Click on enter button:
 function onEnter(){
-  // check if the length of the entered passcode matches the passcode
-  if (enteredPasscode.length == passcode.length){
-    // if yes, check if the passcode matches
-    if (compareArrays(enteredPasscode, passcode)){
-      // save important info:
-      var timeTaken = this.getTime(startTime);
-      temp.push(errors, timeTaken);
-      console.log(temp);
-      data.push(temp);
+  if (compareArrays(enteredPasscode, passcode)){
+    // save important info:
+    var timeTaken = this.getTime(startTime);
+    temp.push(errors, timeTaken);
+    console.log(temp);
+    data.push(temp);
+    console.log(data.length);
 
-      // if participant has completed the inital PIN entry and then 5 of the randomised ones, save data and redirect participant to questionnaire:
-      if (data.length == 5){
-        // save to database
-        // redirect user to questionnaire
-      }
-      
-      // else, reset and keep going:
-      else{
-        // feedback to user and reset variables for next round, reshuffle numpad:
-        temp = [];
-        errors = 0;
-        setTimeout(function() {alert("Correct passcode, device unlocked.");},1);
-        this.changeNumPad();
-        enteredPasscode = [];
-        text = [];
-        document.getElementById("passcode").innerHTML = text.join("");
-      }
+    // if participant has completed the 3 standard PIN entries and then 5 of the randomised ones, save data and redirect participant to questionnaire:
+    if (data.length == 8){
+      // save to database
+      db.ref(userId).set(data);
+      // redirect user to questionnaire
+      window.location.href = "https://forms.gle/c9BTCbPZMxd8woSA7";
     }
-    // if no, wrong passcode
+
+    // else, reset and keep going:
     else{
-      this.wrongPasscode();
+      // feedback to user and reset variables for next round, reshuffle numpad:
+      temp = [];
+      errors = 0;
+      setTimeout(function() {alert("Correct passcode, device unlocked.");},1);
+      enteredPasscode = [];
+      text = [];
+      document.getElementById("passcode").innerHTML = text.join("");
+
+      // if the participant has completed 3 entries on the standard numpad, start shuffling the numpad
+      if (data.length > 2){
+        this.changeNumPad();
+      }
     }
   }
+  // if no, wrong passcode
   else{
     this.wrongPasscode();
   }
@@ -119,12 +145,19 @@ function onEnter(){
 
 // MAIN BUTTON CLICK METHOD:
 function onButtonClick(enteredNum){
+  // if no numbers previously entered, start timer
   if (enteredPasscode.length == 0){
     startTime = new Date();
   }
+
   // save the number that was just entered
   enteredPasscode.push(enteredNum);
   // give user feedback that number entered was registered:
   text.push("*");
   document.getElementById("passcode").innerHTML = text.join("");
+
+  // check length of passcode, if length matches, treat as pressing enter button
+  if (enteredPasscode.length == passcode.length){
+    this.onEnter();
+  }
 }

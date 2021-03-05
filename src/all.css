@@ -1,0 +1,73 @@
+h1 {
+  color: black;
+  margin-top:100px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  margin-left: -5%;
+  text-align: center;
+}
+
+#passcode{
+  font-size:38px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  position: fixed;
+  margin-left: 42%;
+}
+
+table {
+  position:fixed;
+  top:40%;
+  margin-left:7%;
+  margin-right:12.5%;
+  width: 80%;
+  margin-bottom: 5%;
+}
+
+.numButton{
+  height:12vh;
+  width:25vw;
+  padding-top:2vh;
+  touch-action: manipulation;
+  font-size: 16px;
+}
+
+/* css for index.html: */
+
+.button{
+  background-color: #70A4FE;
+  border: black;
+  color: black;
+  padding: 32px 32px;
+  text-align: center;
+  font-size: 24px;
+  display: inline-block;
+  text-decoration: none;
+  /* top: auto;
+  height: auto;
+  position: fixed;
+  float: left;
+  margin-right: 15%; */
+}
+
+.intro{
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: justify;
+  margin-left: 3%;
+  margin-right:3%;
+  font-weight: normal;
+}
+
+.intro-h1 {
+  color: black;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+.intro-h2 {
+  text-align: center;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
