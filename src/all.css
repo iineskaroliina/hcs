@@ -40,7 +40,7 @@ table {
   padding: 20px 20px;
   text-align: center;
   font-size: 24px;
-  display: flex;
+  display: inline-flex;
   text-decoration: none;
   top: auto;
   height: auto;
