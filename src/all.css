@@ -11,7 +11,7 @@ h1 {
   font-size:38px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  position: fixed;
+  position: static;
   margin-left: 42%;
 }
 
@@ -33,7 +33,6 @@ table {
 }
 
 /* css for index.html: */
-
 .button{
   background-color: #70A4FE;
   border: black;
@@ -43,11 +42,6 @@ table {
   font-size: 24px;
   display: inline-block;
   text-decoration: none;
-  /* top: auto;
-  height: auto;
-  position: fixed;
-  float: left;
-  margin-right: 15%; */
 }
 
 .intro{
