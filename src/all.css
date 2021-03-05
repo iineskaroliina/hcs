@@ -40,13 +40,11 @@ table {
   padding: 20px 20px;
   text-align: center;
   font-size: 24px;
-  display: inline-block;
+  display: flex;
   text-decoration: none;
   top: auto;
   height: auto;
-  position: fixed;
-  float: left;
-  margin-left: 20%;
+  /* margin-left: 20%; */
 }
 
 .intro{
