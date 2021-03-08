@@ -16,7 +16,7 @@ enteredPasscode = [];
 text = [];
 startTime = new Date();
 // temp saved: the randomized array, time taken, number of errors
-temp = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]];
+temp = [startTime, [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]];
 data = [];
 errors = 0;
 
@@ -86,11 +86,12 @@ function compareArrays(array1, array2){
 function wrongPasscode(){
   errors += 1;
   setTimeout(function() {alert("Incorrect PIN, try again.");},1);
-  this.changeNumPad();
   enteredPasscode = [];
   text = [];
   document.getElementById("passcode").innerHTML = text.join("");
-  this.changeNumPad();
+  if (data.length > 2){
+    this.changeNumPad();
+  }
 }
 
 // Click on back button:
@@ -109,9 +110,7 @@ function onEnter(){
     // save important info:
     var timeTaken = this.getTime(startTime);
     temp.push(errors, timeTaken);
-    console.log(temp);
     data.push(temp);
-    console.log(data.length);
 
     // if participant has completed the 3 standard PIN entries and then 5 of the randomised ones, save data and redirect participant to questionnaire:
     if (data.length == 8){
